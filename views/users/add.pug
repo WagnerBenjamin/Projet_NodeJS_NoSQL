@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  form(method='POST')
+    input(type='text' name='lastname' placeholder='WAGNER')
+    input(type='text' name='firstname' placeholder='Benjamin')
+    input(type='password' name='password')
+    input(type='submit' value='Enregistrer')
+
+  a(href="http://localhost:8080/users/") Retour

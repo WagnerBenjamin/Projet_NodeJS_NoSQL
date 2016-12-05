@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  case selected
+    when 1
+      form(name='task' method='POST')
+        input(type="hidden" name="toType" value= toType )
+        input(type="hidden" name="assignedBy" value= assignedBy._id )
+        select(name="assignedTo")
+          case who
+            when "user"
+              each possibleTo in possiblesTo
+                option(value= possibleTo._id) #{possibleTo.lastname} #{possibleTo.firstname}
+            when "team"
+              each possibleTo in possiblesTo
+                option(value= possibleTo._id) #{possibleTo.name}
+        input(type="text" name="task" placeholder="Faire la vaisselle")
+        input(type='submit' value='Enregistrer')
+      a(href="http://localhost:8080/tasks/add") Retour
+    default
+      form(name='toType' method='POST')
+        select(name='toType')
+          option Utilisateur
+          option Team
+        input(type='submit' value='Enregistrer')
+      a(href="http://localhost:8080/tasks/") Retour

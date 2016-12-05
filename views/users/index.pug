@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  h1= title
+  a(href= "http://localhost:8080/users/add") Ajouter un nouvel utilisateur
+  p Voici la liste des utilisateurs :
+  ul
+    each user in users
+      li: a(href= "http://localhost:8080/users/" +  user._id) #{user.firstname} #{user.lastname}
+
+  a(href="http://localhost:8080/") Retour

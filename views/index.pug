@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Bienvenue sur #{title}
+
+  a(href="http://localhost:8080/users/") Voir les utilisateurs
+  = '\n'
+  a(href="http://localhost:8080/teams/") Voir les teams
+  = '\n'
+  a(href="http://localhost:8080/tasks/") Voir les tasks

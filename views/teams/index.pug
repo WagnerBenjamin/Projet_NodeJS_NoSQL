@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  h1= title
+  a(href= "http://localhost:8080/teams/add") Ajouter une nouvelle team
+  p Voici la liste des Teams :
+  ul
+    each team in teams
+      li: a(href= "http://localhost:8080/teams/" + team._id) #{team.name}
+
+  a(href="http://localhost:8080/") Retour

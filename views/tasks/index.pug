@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  h1= title
+  a(href= "http://localhost:8080/tasks/add") Ajouter une nouvelle tache
+  p Voici la liste des taches :
+  ul
+    each task in tasks
+      li: #{task.assignedBy} : #{task.task} pour #{task.assignedTo}
+
+  a(href="http://localhost:8080/") Retour

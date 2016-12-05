@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1= title
+  p #{user.lastname} #{user.firstname} est dans la team #{user.teamID}
+
+  ul
+    each task in tasks
+      li #{task.task} par #{task.assignedBy}
+
+
+  a(href="http://localhost:8080/users/") Retour

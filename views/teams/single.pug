@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  h1= title
+  p #{team.name}
+
+  p Taches confié à la team:
+
+  ul
+  each task in tasks
+    li #{task.task} par #{task.assignedBy}
+
+  p Utilisateur dans l'équipe:
+
+  ul
+  each user in userInTeam
+    li #{user.lastname} #{user.firstname}
+
+  form(name='user' method='POST')
+    input(type="hidden" name="id" value= team._id )
+    select(name="user")
+      each user in users
+        option(value= user._id) #{user.lastname} #{user.firstname}
+    input(type="submit" value="Envoyer")
+
+  a(href="http://localhost:8080/teams/") Retour
